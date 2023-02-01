@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import rose from "images/rose1.jpeg"
 /**
  * next의 컴포넌트들(보통 page 컴포넌트)은
  * 가장 먼저 요청을 받는 _app과 _document에 호출되어 그들이 전달한
@@ -104,6 +105,24 @@ export default function index(props) {
       <h1>Login</h1>
       {/* <h1>{!!a ? a : "없음"}</h1> */}
       <Link href={"/"}>SSCK 메인페이지</Link>
+      <span style={{position: 'fixed', width: 1000, height: 100}}>
+      <Image
+        src={rose}
+        alt="rose image"
+        // import한 이미지들은 자동으로 너비와 높이가 지정된다고 했는데
+        // jpeg를 사용해서인지 기입하라고 에러가 발생한다.
+        // 이 외에도
+        // width={100}
+        // height={100}
+        priority // 해당 이미지가 다른 큰 컨텐츠보다 먼저 렌더링(paint)되도록 선언한다.
+        fill
+        // 1. 부모요소가 position: 속성을 갖고 있으면 부모의 너비와 높이가 이미지에 적용되고,
+        // position을 선언하지 않으면 화면 크기가 적용된다.
+        // ~2. 부모 요소가 block 태그여야 한다.~ 는데 인라인 태그 아니여도 잘적용되는디
+        
+      />
+      </span>
+
     </main>
   );
 }

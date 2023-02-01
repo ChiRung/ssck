@@ -1,5 +1,7 @@
-import "@/styles/globals.css";
 import Head from "next/head";
+// import '../styles/default.css'
+import 'styles/default.css'
+
 /**
  * next는 파일 이름으로 정해진 기능들을 수행한다.
  * * _app.js: 서버로 요청이 들어왔을 때 가장 먼저 실행되는 컴포넌트, 페이지에 공통적으로 적용할 기능을 명시할 수 있다.
