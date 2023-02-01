@@ -1,12 +1,12 @@
 import Link from "next/link";
-import React, { useEffect, useState } from 'react';
-
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
 /**
  * next의 컴포넌트들(보통 page 컴포넌트)은
  * 가장 먼저 요청을 받는 _app과 _document에 호출되어 그들이 전달한
  * pageProps를 받고, 아래의 function을 export하면 렌더링 시점과
  * 방법에 대한 핸들링을 할 수 있다.
- * 
+ *
  * 1. `getServerSideProps`
  * * 짧: 페이지를 pre-render할 때 필요한 데이터를 추가할 수 있다.
  * * 길: 선언된 페이지 컴포넌트를 서버가 렌더링 하여 응답값으로 전달할 때(response)
@@ -16,13 +16,13 @@ import React, { useEffect, useState } from 'react';
  * 추가적으로 You should not access 'res' after getServerSideProps resolves가 발생하는 경우
  * 이는 getServerSideProps()에 parameter를 전달할 시 서버가 응답하는 데이터를 받는데,
  * getServerSideProps이 실행되고 난뒤 res의 데이터가 변경되는데, 페이지 컴포넌트에 전달되는 res가 변동이 적용된 데이터인지
- * 확인할 수 없다는 에러이다. 
+ * 확인할 수 없다는 에러이다.
  * => 고냥 getServerSideProps에 Paremeter를 사용하지 않거나, res 빼고 다른 데이터만 사용하면 된다.
- * 
+ *
  * => 고럼 아래의 페이지 컴포넌트 내부에서 useEffect 선언하고 api 찔러서 데이터 받아오면 되지 않냐!
  * 라고 한다면 아래는 클라이언트에서 실행되고 이 getServeriSideProps는 서버에서 실행되기 때문에 클라이언트에게 실행에 대한 결과 등을 숨길 수 있다.
  * => 백엔드와의 통신을 클라이언트에서 하지 말고 웹서버에서 통신하고 렌더링까지 원큐에해서 완성품을 클라이언트에게
- * 
+ *
  * */
 // export async function getServerSideProps({req}) {
 //   // 여기 parameter엔 페이지를 렌더링하는 서버가 전달하는 req, res 정보가 담겨있다. res는 데이터 변동 때문에 핸들링을 시도하면 warning이 발생하므로 res 빼고 쓰거나 쓰지 말것.
@@ -39,8 +39,6 @@ import React, { useEffect, useState } from 'react';
 //     // function이름대로 서버에서 생성한 props을 페이지 컴포넌트에 전달하는 함수. 라고 보면 될듯
 //   };
 // }
-
-
 
 /**
  * 2. `getStaticProps`
@@ -74,7 +72,6 @@ import React, { useEffect, useState } from 'react';
 //   }
 // }
 
-
 /*
   위 방식들이 Next가 지원하는 ssr과 static generation인 pre-rendering 방식이며, 위 방법을 섞어 두가지 방법을 혼용한 hybrid next 앱을 만들 수 있다.
   ssr은 요청마다 렌더링 되기 때문에 재사용 안되고, static은 고정 데이터를 사용하기 때문에 재사용된다.
@@ -82,36 +79,31 @@ import React, { useEffect, useState } from 'react';
   next에서는 성능상의 이유로 static을 추천한다는데, 데이터 변동되는 부분을 제외하면 다 이걸로 떼우는게 ux 측면을 크게 향상 시킬 수 있을듯하다.
  */
 
-
 export default function index(props) {
-  const [a, setabc] = useState()
+  const [a, setabc] = useState();
   const abc = async () => {
     try {
-      const bbb = await fetch('/api/hello');
-      const aaa = bbb.json()
+      const bbb = await fetch("/api/hello");
+      const aaa = bbb.json();
       console.log("띠용해요", aaa, bbb.body);
-      setabc(aaa)
-      return aaa
+      setabc(aaa);
+      return aaa;
     } catch (error) {
-      return error
+      return error;
     }
-    
-    
-  }
+  };
   useEffect(() => {
     console.log(2222222222);
     console.log(props);
-    
-    abc()
+
+    abc();
   }, []);
 
   return (
-
     <main>
       <h1>Login</h1>
       {/* <h1>{!!a ? a : "없음"}</h1> */}
-      h1
-      <Link href={'/'}>SSCK 메인페이지</Link>
+      <Link href={"/"}>SSCK 메인페이지</Link>
     </main>
   );
 }
