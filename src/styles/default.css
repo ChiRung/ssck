@@ -1,5 +1,25 @@
 * {
-    background-color: #121212;
-    color: #FFFFFF;
-    font-weight: 900;
+    /* background-color: #121212; */
+    /* color: #FFFFFF; */
+    /* font-weight: 900; */
+}
+.wrapper {
+    background-color: white;
+    /* width: 100px;
+    height: 100px; */
+}
+#editorContainer {
+    /* background-color: red;
+    width: ; */
+    display: flex;
+    /* justify-content: space-between; */
+}
+#editorjs {
+    /* min-width: 1000px; */
+    /* width: 65vw; */
+    /* min-width: fit-content; */
+    width: fit-content;
+    width: auto;
+    border: 1px solid black;
+    /* align-self: center; */
 }
