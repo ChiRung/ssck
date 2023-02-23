@@ -1,0 +1,27 @@
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+}
+
+.headerLogo {
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.headerMenuBtn {
+    display: none;
+}
+
+@media (width <= 900px) {
+    .headerContainer {
+        height: 100px;
+        padding: 5px 15px;
+    }
+
+    .headerMenuBtn {
+        display: inline-block;
+    }
+}

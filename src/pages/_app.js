@@ -1,3 +1,4 @@
+import { Header } from "@/components/Header";
 import Head from "next/head";
 // import '../styles/default.css'
 import 'styles/default.css'
@@ -14,6 +15,7 @@ export default function App({ Component, pageProps }) {
       <Head>
         <title>SSCK</title>
       </Head>
+      <Header />
       <Component {...pageProps} />
     </>
   );

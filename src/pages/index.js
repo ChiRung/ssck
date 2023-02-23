@@ -4,6 +4,7 @@ import React, {useEffect} from "react";
 // import EditorJS from '@editorjs/editorjs';
 // console.log(EditorJS);
 import dynamic from 'next/dynamic';
+import { Header } from "@/components/Header";
 // const EditorJS = dynamic(() => import('@editorjs/editorjs'), { ssr: false });
 // const EditorJS = dynamic(() => import('@editorjs/editorjs'), { ssr: false });
 // const Editor = new EditorJS();
@@ -24,14 +25,15 @@ export default function index() {
   return (
     <>
       <Head>
-        {/* <meta name="description" content="프론트엔드 이야기" />
-        <meta name="author" content="chan" />
-        <meta name="keyword" content="frontend, react" /> */}
+        {/* <meta name="description" content="프론트엔드 이야기" /> */}
+        {/* <meta name="author" content="chan" /> */}
+        {/* <meta name="keyword" content="frontend, backend, react, html, css, spring, java, javascript, js" /> */}
       </Head>
       <main>
-        <h1>메인 페이지에용</h1>
-        <Link href={"/studyMemo/pageProps/1"}>GoToStudy</Link>
-        <Editor />
+        {/* <div><h1>헤더자리</h1> </div> */}
+        {/* <Header /> */}
+        {/* <Link href={"/studyMemo/pageProps/1"}>GoToStudy</Link> */}
+        {/* <Editor /> */}
       </main>
     </>
   );
